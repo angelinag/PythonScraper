@@ -31,6 +31,5 @@ class Export:
     def endexport(self):
         self.workSheet.Columns.AutoFit()
         self.workBook.SaveAs(filepath + filename + '.xls')
-        #self.workBook.Close(savechanges=1)
         self.xl.Quit()
 
