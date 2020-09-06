@@ -1,15 +1,16 @@
 import win32com.client
-worksheetname = 'americanAirlinesReviews'
-filename = 'american_airlines_reviews_scraped'
-filepath = 'D:\\'
+
 
 class Export:
-    def __init__(self):
+    def __init__(self, worksheetname, filename, filepath):
         self.xl = win32com.client.Dispatch("Excel.Application")
+
         self.workBook = self.xl.Workbooks.Add()
-        #self.xl.Visible = True
         self.workSheet = self.workBook.ActiveSheet
+
         self.workSheet.Name = worksheetname
+        self.filename = filename
+        self.filepath = filepath
 
     columnpointer = 'A'
     def movecolumnpointer(self):
@@ -30,6 +31,6 @@ class Export:
 
     def endexport(self):
         self.workSheet.Columns.AutoFit()
-        self.workBook.SaveAs(filepath + filename + '.xls')
+        self.workBook.SaveAs(self.filepath + self.filename + '.xls')
         self.xl.Quit()
 

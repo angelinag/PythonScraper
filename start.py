@@ -1,8 +1,11 @@
+import config
+
 from src.Fetch import Fetch
 from src.Parse import Parse
 from src.Export import Export
 
-f = Fetch()
+pageURL = config.strings["URL"]
+f = Fetch(pageURL)
 stars = []
 names = []
 texts = []
@@ -22,8 +25,10 @@ while True:
     texts = texts + moretexts
     dates = dates + moredates
 
-
-e1 = Export()
+worksheetname = config.strings["worksheetname"]
+filename = config.strings["filename"]
+filepath = config.strings["filepath"]
+e1 = Export(worksheetname, filename, filepath)
 e1.populatecolumn(stars)
 e1.populatecolumn(names)
 e1.populatecolumn(texts)

@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 
 
 class Fetch:
-    def __init__(self):
-        self.URL = 'https://www.yelp.com/biz/american-airlines-irving'
+    def __init__(self, URL):
+        self.URL = URL
         self.pagenum = 0
 
     def getnextpageurl(self):
